@@ -1,0 +1,43 @@
+{
+    "name": "calorie-tracker",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@nextui-org/react": "^1.0.0-beta.12",
+        "algoliasearch": "^4.17.0",
+        "bcrypt": "^5.1.0",
+        "fs": "^0.0.1-security",
+        "iron-session": "^6.3.1",
+        "lib": "^5.0.1",
+        "mysql2": "^3.3.0",
+        "net": "^1.0.2",
+        "next": "^13.4.4",
+        "next-auth": "^4.22.1",
+        "next-pwa": "^5.6.0",
+        "next-session": "^4.0.5",
+        "react": "^18.2.0",
+        "react-calendar": "^4.0.0",
+        "react-confetti": "^6.1.0",
+        "react-dom": "^18.2.0",
+        "react-instantsearch-dom": "^6.40.0",
+        "sass": "^1.57.1",
+        "tls": "^0.0.1",
+        "validator": "^13.9.0",
+        "xss": "^1.0.14"
+    },
+    "devDependencies": {
+        "eslint": "8.32.0",
+        "eslint-config-next": "13.1.2"
+    },
+    "browser": {
+        "fs": false,
+        "os": false,
+        "path": false
+    }
+}

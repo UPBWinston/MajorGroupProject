@@ -1,0 +1,41 @@
+.dark {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.dark .arrow-icon {
+    fill: #ffffff;
+}
+
+.dark a,
+.dark .dark-text {
+    color: #ffffff;
+}
+
+.dark .card {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark .dark-label {
+    display: inline-block;
+    margin-bottom: 5px;
+
+    color: #ffffff;
+}
+
+.dark .modal-content {
+    background-color: #333333;
+}
+
+.dark .modal-content label,
+.dark .modal-content .text-gray {
+    color: #d1cfcf;
+}
+
+.dark .modal-content input {
+    border-bottom-color: #ffffff;
+
+    background-color: #333333;
+    color: #ffffff;
+}

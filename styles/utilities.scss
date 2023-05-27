@@ -1,0 +1,222 @@
+.mx-15 {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.mx-0 {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.mx-1 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.m-center {
+    margin: 0 auto !important;
+}
+
+.mt-1 {
+    margin-top: 10px;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+.mr-1 {
+    margin-right: 10px;
+}
+
+.mb-04 {
+    margin-bottom: 4px;
+}
+
+.mb-1 {
+    margin-bottom: 10px;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
+}
+
+.ml-1 {
+    margin-left: 10px;
+}
+
+.pt-1 {
+    padding-top: 10px;
+}
+
+.p-1 {
+    padding: 5px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute{
+    position: absolute;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-direction-column {
+    flex-direction: column;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-start {
+    align-items: flex-start;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.text-decoration-underline {
+    text-decoration: underline;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+.align-self-start {
+    align-self: flex-start;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.b-color-orange {
+    border-color: $orange !important;
+}
+
+.back-color-white{
+    background-color: white !important;
+    color: black !important;
+}
+
+.back-color-black{
+    background-color: black !important;
+    color: white !important;
+}
+
+.back-color-coral{
+    background-color: coral !important;
+    color: white !important;
+}
+
+.space-top-15px{
+    padding-top: 15px;
+}
+
+.space-bot-15px{
+    padding-bottom: 15px;
+}
+
+.b-1 {
+    border: 3px solid #000000;
+}
+
+.three-columns {
+    column-count: 3;
+    column-gap: 10px;
+}
+
+.three-columns-items{
+    break-inside: avoid;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+.overflow-y-100 {
+    height: 100px;
+    overflow-y: scroll;
+}
+
+.align-self-center{
+    margin: auto
+}
+
+.float-left{
+    float: left;
+}
+
+.two-hundred-px-width{
+    width: 200px;
+}
+
+.fixed-height{
+    height: 30px;
+    width: 100%;
+}
+
+.width-33-percent{
+    width: 33%;
+}
+
+.width-90-percent{
+    width: 90%;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #ddd;
+}
+
+.progress-bar-progress {
+    height: 30px;
+}

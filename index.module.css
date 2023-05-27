@@ -1,0 +1,32 @@
+/*
+index page css
+*/
+.button1CSS {
+    color: rgb(46, 53, 190);
+    background-color:rgb( 194, 237, 24);
+  }
+  
+  .button2CSS{
+    color: rgb(194, 237, 24);
+    background-color: rgb(46, 53, 190);
+
+  }
+
+  .navBar{
+    background-color: rgb(63, 122, 20);
+
+  }
+
+
+  .image1CSS{
+    max-width: 490px;
+    max-height: 0%;
+
+  }
+
+
+  .image2CSS{
+    max-width: 590x;
+   
+  }
+

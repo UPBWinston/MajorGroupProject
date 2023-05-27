@@ -1,0 +1,26 @@
+.button3CSS {
+    color: rgb(46, 53, 190);
+    background-color:rgb( 194, 237, 24);
+  }
+  
+  .button4CSS{
+    color: rgb(194, 237, 24);
+    background-color: rgb(46, 53, 190);
+
+  }
+
+  .nav{
+    visibility:hidden;
+  }
+
+  .image3CSS{
+    max-width: 490px;
+    max-height: 0%;
+
+  }
+
+
+  .image4CSS{
+    max-width: 590x;
+   
+  }
