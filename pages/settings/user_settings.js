@@ -23,12 +23,13 @@ async function saveUserSettings(event) {
 
 function useUserSettingsForm(username) {
     const [userSettings, setUserSettings] = useState([]);
-    const data = {
-        reqType: "get",
-        username: username
-    }
+   
 
     useEffect(() => {
+        const data = {
+            reqType: "get",
+            username: username
+        };
         fetch('/api/user_settings', getApiCallOptions("POST", data))
             .then((res) => {
                 return res.json();
@@ -50,7 +51,7 @@ function useUserSettingsForm(username) {
                 }
                
             });
-    }, [data, username]);
+    }, [username]);
 
     return (
 
