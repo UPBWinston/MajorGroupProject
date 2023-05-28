@@ -9,7 +9,7 @@ import MealBlock from "../../../shared/components/Home/MealBlock";
 import {MealModal} from "../../../shared/components/Home/MealModal";
 import ProgressBar from "../../../shared/components/Home/ProgressBar";
 
-function setMeals(setterFunction, mealData) {
+function useMeals(setterFunction, mealData) {
     const mealApiCallOptions = getApiCallOptions("POST", mealData);
 
     useEffect(() => {
@@ -31,7 +31,7 @@ function getBreakfastMeals(date, calories) {
         type: "breakfast",
         date: date,
     };
-    setMeals(setBreakfastMeals, breakfastData);
+    useMeals(setBreakfastMeals, breakfastData);
 
     if (!breakfastMeals || breakfastMeals.length === 0) {
         return <div className="three-columns-items">No Meals</div>;
@@ -47,7 +47,7 @@ function getBreakfastMeals(date, calories) {
         <div>
             <ProgressBar filled={breakfastCals} total={calories}></ProgressBar>
             {breakfastMeals.map((meal) => (
-                <MealBlock meal={meal}/>
+                <MealBlock meal={meal} key={meal.foodName}/>
             ))}
         </div>
     );
@@ -62,7 +62,7 @@ function getLunchMeals(date, calories) {
         type: "lunch",
         date: date
     };
-    setMeals(setLunchMeals, lunchData);
+    useMeals(setLunchMeals, lunchData);
 
     if (!lunchMeals || lunchMeals.length === 0) {
         return <div className="three-columns-items">No Meals</div>;
@@ -78,7 +78,7 @@ function getLunchMeals(date, calories) {
         <div>
             <ProgressBar filled={lunchCals} total={calories}></ProgressBar>
             {lunchMeals.map((meal) => (
-                <MealBlock meal={meal}/>
+                <MealBlock meal={meal} key={meal.foodName}/>
             ))}
         </div>
     );
@@ -91,7 +91,7 @@ function getDinnerMeals(date, calories) {
         type: "dinner",
         date: date,
     };
-    setMeals(setDinnerMeals, dinnerData);
+    useMeals(setDinnerMeals, dinnerData);
 
     if (!dinnerMeals || dinnerMeals.length === 0) {
         return (<div>No Meals</div>);
@@ -127,7 +127,7 @@ function getMealFromFood(food, date) {
     }
 }
 
-function getMealModals(nameSubstring, date) {
+function useMealModals(nameSubstring, date) {
     const [foodList, setFoodList] = useState([]);
     const [isLoading, setLoading] = useState(false);
 
@@ -161,7 +161,7 @@ function getMealModals(nameSubstring, date) {
     return (
         <div>
             {filteredList.slice(0, 7).map((food) => (
-                <div className="float-left two-hundred-px-width">
+                <div className="float-left two-hundred-px-width" key={food.name}>
                     <MealModal meal={getMealFromFood(food, date)}
                                button={{text: food.name, className: "back-color-black"}}/>
                 </div>
@@ -215,7 +215,7 @@ export default function Date({username}) {
                     name="search-food"
                     value={nameSubstring}
                     placeholder="Search food..."/>
-                <div className="d-inline-block">{getMealModals(nameSubstring, date)}</div>
+                <div className="d-inline-block">{useMealModals(nameSubstring, date)}</div>
             </div>
             <div>
                 <div className="width-33-percent float-left">

@@ -21,7 +21,7 @@ async function saveUserSettings(event) {
 
 }
 
-function getUserSettingsForm(username) {
+function useUserSettingsForm(username) {
     const [userSettings, setUserSettings] = useState([]);
     const data = {
         reqType: "get",
@@ -50,7 +50,7 @@ function getUserSettingsForm(username) {
                 }
                
             });
-    }, []);
+    }, [data, username]);
 
     return (
 
@@ -164,7 +164,7 @@ export default function UserSettings({username}) {
 
             <div className="container">
                 <h1 className="mt-1 mx-15">user settings</h1>
-                {getUserSettingsForm(username)}
+                {useUserSettingsForm(username)}
                 <button className="button button-green float-left column" type="button"
                         onClick={setRecommendedCalories}>recommend calories
                 </button>
