@@ -39,7 +39,7 @@ function useFood(nameSubstring){
     return (
         <div className="three-columns">
         {filteredList.map((food) => (
-                <FoodBlock food={food}/>
+                <FoodBlock food={food} key={food.name}/>
             ))}
         </div>
     );

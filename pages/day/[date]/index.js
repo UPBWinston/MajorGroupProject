@@ -107,7 +107,7 @@ function useDinnerMeals(date, calories) {
         <div>
             <ProgressBar filled={dinnerCals} total={calories}></ProgressBar>
             {dinnerMeals.map((meal) => (
-                <MealBlock meal={meal}/>
+                <MealBlock meal={meal} key={meal.foodName}/>
             ))}
         </div>
     );
