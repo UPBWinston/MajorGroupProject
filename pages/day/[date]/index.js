@@ -24,7 +24,7 @@ function useMeals(setterFunction, mealData) {
     }, [])
 }
 
-function getBreakfastMeals(date, calories) {
+function useBreakfastMeals(date, calories) {
     const [breakfastMeals, setBreakfastMeals] = useState([]);
     const breakfastData = {
         reqType: "get",
@@ -53,7 +53,7 @@ function getBreakfastMeals(date, calories) {
     );
 }
 
-function getLunchMeals(date, calories) {
+function useLunchMeals(date, calories) {
     const [lunchMeals, setLunchMeals] = useState([]);
 
 
@@ -84,7 +84,7 @@ function getLunchMeals(date, calories) {
     );
 }
 
-function getDinnerMeals(date, calories) {
+function useDinnerMeals(date, calories) {
     const [dinnerMeals, setDinnerMeals] = useState([]);
     const dinnerData = {
         reqType: "get",
@@ -220,15 +220,15 @@ export default function Date({username}) {
             <div>
                 <div className="width-33-percent float-left">
                     <div className="text-bold text-large">Breakfast</div>
-                    {getBreakfastMeals(date, calorieGoal/3)}
+                    {useBreakfastMeals(date, calorieGoal/3)}
                 </div>
                 <div className="width-33-percent float-left">
                     <div className="text-bold text-large">Lunch</div>
-                    {getLunchMeals(date, calorieGoal/3)}
+                    {useLunchMeals(date, calorieGoal/3)}
                 </div>
                 <div className="width-33-percent float-left">
                     <div className="text-bold text-large">Dinner</div>
-                    {getDinnerMeals(date, calorieGoal/3)}
+                    {useDinnerMeals(date, calorieGoal/3)}
                 </div>
             </div>
         </div>

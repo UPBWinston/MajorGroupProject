@@ -5,7 +5,7 @@ import {FoodModal} from "../../shared/components/Home/FoodModal";
 import {withIronSessionSsr} from "iron-session/next/index";
 import {sessionOptions} from "../../lib/session";
 
-function getFood(nameSubstring){
+function useFood(nameSubstring){
     const [foodList, setFoodList] = useState([]);
     const [isLoading, setLoading] = useState(false);
 
@@ -73,7 +73,7 @@ export default function FoodDictionary ({username}){
                 placeholder="Search food..." />
             <FoodModal food={{}} button={{text:"Add new", className:"m-center back-color-black"}}></FoodModal>
             <div className="space-top-15px">
-                {getFood(nameSubstring)}
+                {useFood(nameSubstring)}
             </div>
         </div>
     );
