@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import SettingsItem from '../../shared/components/SettingsItems/SettingsItem';
-import {withIronSessionSsr} from "../iron-session/next/index";
+import {withIronSessionSsr} from "iron-session/next";
 import {sessionOptions} from "../../lib/session";
 
 export default function Settings({username}) {

@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect, useState } from 'react';
 import FoodBlock from "../../shared/components/Home/FoodBlock";
 import {FoodModal} from "../../shared/components/Home/FoodModal";
-import {withIronSessionSsr} from "iron-session/next/index";
+import {withIronSessionSsr} from "iron-session/next";
 import {sessionOptions} from "../../lib/session";
 
 function useFood(nameSubstring){
