@@ -79,22 +79,22 @@ export default function FoodDictionary ({username}){
     );
 }
 
-export const getServerSideProps = withIronSessionSsr(
-    async ({req, res}) => {
-        const username = req.session.username;
+// export const getServerSideProps = withIronSessionSsr(
+//     async ({req, res}) => {
+//         const username = req.session.username;
 
-        if(!username) {
-            return {
-                redirect: {
-                    permanent: false,
-                    destination: "/login",
-                },
-            }
-        }
+//         if(!username) {
+//             return {
+//                 redirect: {
+//                     permanent: false,
+//                     destination: "/login",
+//                 },
+//             }
+//         }
 
-        return {
-            props: { username }
-        }
-    },
-    sessionOptions
-);
+//         return {
+//             props: { username }
+//         }
+//     },
+//     sessionOptions
+// );

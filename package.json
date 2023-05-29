@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@nextui-org/react": "^1.0.0-beta.12",
+        "@vercel/postgres": "^0.3.0",
         "algoliasearch": "^4.17.0",
         "bcrypt": "^5.1.0",
         "fs": "^0.0.1-security",
