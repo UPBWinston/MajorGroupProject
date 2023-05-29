@@ -1,29 +1,27 @@
-import {getDatabaseConnection} from "./db";
-import {setResponseStatusBasedOnError} from "./utils";
+import { sql } from '@vercel/postgres';
 
 async function saveSettings(req, res){
-    const connection = getDatabaseConnection();
-    connection.query(
-        `insert into test.user_settings(username, gender, age, weight, height, calorieGoal) 
-            values ("${req.body.username}", "${req.body.gender}", "${req.body.age}", "${req.body.weight}", "${req.body.height}", "${req.body.calorieGoal}")
-            on duplicate key update gender="${req.body.gender}", age="${req.body.age}", weight="${req.body.weight}", height="${req.body.height}", calorieGoal="${req.body.calorieGoal}"`,
-        async function (err, results, fields) {
-            setResponseStatusBasedOnError(err, res, "ok");
-            console.log(err);
-            connection.end();
-        }
-    );
+    try {
+        await sql`insert into user_settings(username, gender, age, weight, height, calorieGoal) 
+        values (${req.body.username}, ${req.body.gender}, ${req.body.age}, ${req.body.weight}, ${req.body.height}, ${req.body.calorieGoal})
+        ON CONFLICT (username) 
+        DO 
+        UPDATE SET gender=${req.body.gender}, age=${req.body.age}, weight=${req.body.weight}, height=${req.body.height}, calorieGoal=${req.body.calorieGoal}`;
+        res.status(200).json("ok");
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ error });
+    }
+
 }
 
 async function getSettings(req, res){
-    const connection = getDatabaseConnection();
-    connection.query(
-        `select * from test.user_settings where username="${req.body.username}"`,
-        async function (err, results, fields) {
-            res.status(200).json(results);
-            connection.end();
-        }
-    );
+    try {
+        const result = await sql`select * from user_settings where username=${req.body.username}`;
+        res.status(200).json(result.rows);
+    } catch (error) {
+        return res.status(500).json([]);
+    }
 }
 
 export default async function handler(req, res) {

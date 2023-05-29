@@ -1,50 +1,39 @@
-import {getDatabaseConnection} from "./db";
 import {setResponseStatusBasedOnError} from "./utils"
-
+import { sql } from '@vercel/postgres';
 
 async function addNewMeal(req, res) {
-    const connection = getDatabaseConnection();
-    connection.query(
-        `insert into test.meal(date, type, portions, foodName) 
-            values ("${req.body.date}", "${req.body.type}", "${req.body.portions}", "${req.body.foodName}")
-            on duplicate key update date="${req.body.date}", type="${req.body.type}", portions="${req.body.portions}", foodName="${req.body.foodName}"`,
-        async function (err, results, fields) {
-            setResponseStatusBasedOnError(err, res, "ok");
-            connection.end();
-        }
-    );
+    try {
+        await sql`insert into meal(date, type, portions, foodName) 
+        values (${req.body.date}, ${req.body.type}, ${req.body.portions}, ${req.body.foodName})
+        ON CONFLICT (date, type, foodName) 
+        DO 
+        UPDATE SET date=${req.body.date}, type=${req.body.type}, portions=${req.body.portions}, foodName=${req.body.foodName}`;
+        res.status(200).json("ok");
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ error });
+    }
 }
 
 async function getMeals(req, res) {
-    const connection = getDatabaseConnection();
-    console.log("Getting meals");
-    connection.query(
-        `select * from test.meal, test.food where date="${req.body.date}" and type="${req.body.type}" and foodName = name`,
-        async function (err, results, fields) {
-            console.log(results);
-            if (err) {
-                console.log("ERROR: " + err);
-            }
-            res.status(200).json(results);
-            connection.end();
-        }
-    );
+    try {
+        console.log(`select * from meal, food where meal.foodname = food.name, meal.date=${req.body.date} and meal.type=${req.body.type}`);
+        const result = await sql`select * from meal inner join food on meal.foodname = food.name where meal.date=${req.body.date} and meal.type=${req.body.type}`;
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ error });
+    }
 }
 
 async function delMeal(req, res) {
-    const connection = getDatabaseConnection();
-    console.log("Getting meals");
-    connection.query(
-        `delete from test.meal where date="${req.body.date}" and type="${req.body.type}" and foodName = "${req.body.foodName}"`,
-        async function (err, results, fields) {
-            console.log(results);
-            if (err) {
-                console.log("ERROR: " + err);
-            }
-            res.status(200).json(results);
-            connection.end();
-        }
-    );
+    try {
+        const result = await sql`delete from meal where date=${req.body.date} and type=${req.body.type} and foodName = ${req.body.foodName}`;
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ error });
+    }
 }
 
 export default async function handler(req, res) {

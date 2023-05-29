@@ -1,23 +1,16 @@
-import {getDatabaseConnection} from "./db";
-import {setResponseStatusBasedOnError} from "./utils"
 import bcrypt from "bcrypt";
+import { sql } from '@vercel/postgres';
 
-function insertUserCallBack(){
 
-}
+export default async function handler(req, res) {
 
-export default function handler(req, res) {
-
-    // create the connection to database
-    const connection = getDatabaseConnection()
-    console.log("Registeing new user");
-
-    bcrypt.hash(req.body.password, 12).then(passwordHash => {
-        connection.query(
-            `insert into test.users(username, password, address, phoneNumber) values ("${req.body.username}", "${passwordHash}", "${req.body.address}", "${req.body.phoneNumber}")`,
-            function (err, results, fields) {
-                setResponseStatusBasedOnError(err, res);
-            }
-        );
+    bcrypt.hash(req.body.password, 12).then(async passwordHash => {
+        try {
+            await sql`insert into users(username, password, address, phoneNumber) values (${req.body.username}, ${passwordHash}, ${req.body.address}, ${req.body.phoneNumber})`;
+            res.status(200).json("ok");
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({ error });
+        }
     }).catch(err => console.error(err.message));
 }

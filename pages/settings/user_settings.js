@@ -2,7 +2,6 @@ import {Button, Card, Col, Container, Input, NextUIProvider, Row, Spacer, Text} 
 import {withIronSessionSsr} from "iron-session/next";
 import {sessionOptions} from "../../lib/session";
 import Head from "next/head";
-import Snackbar from "../../shared/components/Snackbar/Snackbar";
 import {getApiCallOptions} from "../api/utils";
 import {useState, useEffect} from 'react';
 
@@ -47,7 +46,7 @@ function useUserSettingsForm(username) {
                         }
                     );
                 }else{
-                setUserSettings(userSettings[0]);
+                    setUserSettings(userSettings[0]);
                 }
                
             });

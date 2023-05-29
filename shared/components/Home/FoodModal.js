@@ -83,7 +83,7 @@ export const FoodModal = ({ food, button}) => {
                                        onSelectionChange={setSelected}>
                             {unitTypes.map(
                                 unitType => {
-                                    return(<Dropdown.Item key={unitType.toString()}>{unitType}</Dropdown.Item>);
+                                    return(<Dropdown.Item key={unitType}>{unitType}</Dropdown.Item>);
                                 }
                             )}
                         </Dropdown.Menu>
