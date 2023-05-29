@@ -15,15 +15,12 @@ async function addNewFood(req, res) {
         return res.status(500).json({ error });
     }
 
-
 }
 
 async function getFood(req, res) {
     try {
         const result = await sql`select * from food;`;
-        const rows = result.rows;
-        console.log(rows);
-        res.status(200).json(rows);
+        res.status(200).json(result.rows);
     } catch (error) {
         return res.status(500).json([]);
     }

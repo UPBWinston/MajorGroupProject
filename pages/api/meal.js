@@ -28,6 +28,7 @@ async function getMeals(req, res) {
 
 async function delMeal(req, res) {
     try {
+        console.log(`delete from meal where date=${req.body.date} and type=${req.body.type} and foodName = ${req.body.foodName}`);
         const result = await sql`delete from meal where date=${req.body.date} and type=${req.body.type} and foodName = ${req.body.foodName}`;
         res.status(200).json(result.rows);
     } catch (error) {

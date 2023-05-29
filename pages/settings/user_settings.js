@@ -119,7 +119,7 @@ function useUserSettingsForm(username) {
                     name="calorieGoal"
                     required
                     placeholder="calorie goal"
-                    defaultValue={userSettings.calorieGoal}
+                    defaultValue={userSettings.caloriegoal}
                     className="width-90-percent"
                 />
                 <text>kcal</text>

@@ -15,7 +15,6 @@ function useMeals(setterFunction, mealData) {
     useEffect(() => {
         fetch('/api/meal', mealApiCallOptions)
             .then((res) => {
-                console.log(res);
                 return res.json();
             })
             .then((mealList) => {

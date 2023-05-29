@@ -46,7 +46,7 @@ export function deleteMeal(meal){
         date: meal.date,
         type: meal.type,
         portions: meal.portions,
-        foodName: meal.foodName
+        foodName: meal.foodname
     }
 
     fetch(MEAL_ENDPOINT, getApiCallOptions("POST", mealData)).then();
