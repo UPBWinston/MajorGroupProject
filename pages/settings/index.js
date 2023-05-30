@@ -26,6 +26,10 @@ export default function Settings({username}) {
                         text="food dictionary"
                         link="/settings/food_dictionary"
                     />
+                     <SettingsItem
+                        text="exercise dictionary"
+                        link="/settings/exercise_dictionary"
+                    />
                 </div>
             </div>
         </div>
