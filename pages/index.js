@@ -36,7 +36,7 @@ export default function Home({ username }) {
       
 
         <Container gap={0}>
-      <Row gap={1}>
+      <Row gap={0}>
         <Col>
           <Card css={{ $$cardColor: '$colors$default' }}>
             <Card.Body>
@@ -55,22 +55,17 @@ export default function Home({ username }) {
             <Card.Body>
             <Text h6 size={15}  css={{ m: 0 , }}>
                Eat Sleep, Gym, and Repeat.
-              <img className={styles.image1CSS} src = "./image.jpg"></img></Text>
+              <img className={styles.image1CSS} 
+              src = "./i5.jpg">
+               
+                
+              </img>
+            </Text>
              
           </Card.Body> 
           </Card>
         </Col>
-        <Col>
-          <Card css={{ $$cardColor: '$colors$primary' }}>
-            <Card.Body>
-            <Text h6 size={15}  css={{ m: 0 , }}>
-            Lift today, shape tomorrow
-              <img className={styles.image2CSS} src = "./image2.jpg"></img>
-
-              </Text>
-            </Card.Body>
-          </Card>
-        </Col>
+       
       </Row>
     </Container>
 

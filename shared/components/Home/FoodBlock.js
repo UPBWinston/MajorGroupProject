@@ -5,13 +5,6 @@ import {Button} from "@nextui-org/react";
 const FoodBlock = ({
                        food
                    }) => {
-    var [portions, setPortions] = useState(1);
-
-    const updateAmountOfFood = ({event, amount}) => {
-        event.stopPropagation();
-        setPortions(portions + amount)
-        console.log(portions);
-    };
 
     const backgroundColor = food.color || '#ffe58f';
 

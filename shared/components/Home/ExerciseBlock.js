@@ -1,6 +1,5 @@
 import {useState} from "react";
 import {ExerciseModal} from "./ExerciseModal"
-import {Button} from "@nextui-org/react";
 
 const ExerciseBlock = ({
                        exercise

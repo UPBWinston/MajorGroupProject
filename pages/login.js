@@ -4,6 +4,9 @@ import {getApiCallOptions} from "./api/utils";
 import {NextUIProvider, Container, Card, Row, Text, Col, Spacer,Input,Button  } from "@nextui-org/react";
 import {signIn, signOut, useSession } from "next-auth/react";
 
+
+
+
 export default function Home({data}) {
   const router = useRouter()
 
@@ -57,12 +60,16 @@ export default function Home({data}) {
         const result = await response.json()
 
       if(result.includes("customer")){
-        router.push("/customer");
+        router.push("/index_calculator");
       }
       else if(result.includes("manager")){
         router.push("/checkout");
       }
     
+  }
+
+  function goToRegister(){
+    router.push("/register");
   }
   
   
@@ -113,8 +120,10 @@ export default function Home({data}) {
               <Button type ="submit" color="secondary" auto>
           Login
         </Button>
-                  <Button color="secondary" onClick={signIn}>Sign in with Google</Button>
+            <Button color="secondary" onClick={signIn} className="width-33-percent">Sign in with Google</Button>
+            <Button onClick={goToRegister} color="secondary" className="width-33-percent">Register new user</Button>
           </form>
+           
 
             </Card.Body>
           </Card>

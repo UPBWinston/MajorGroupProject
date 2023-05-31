@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import watermelonIcon from '../../../public/icons/watermelon.svg';
 
-const EmptyFoodBlocks = ({ addEmptyFoodBlock }) => {
+const EmptyExerciseBlocks = ({ addEmptyExerciseBlock }) => {
     return (
         <>
             <div className="no-food-blocks-emoji">
@@ -12,15 +12,15 @@ const EmptyFoodBlocks = ({ addEmptyFoodBlock }) => {
                     alt="watermelon icon"
                 />
             </div>
-            <p className="text-center text-medium mb-1">no food blocks</p>
+            <p className="text-center text-medium mb-1">no exercise blocks</p>
             <button
                 className="dark-text text-large text-decoration-underline d-block m-center"
-                onClick={() => addEmptyFoodBlock()}
+                onClick={() => addEmptyExerciseBlock()}
             >
-                add a food block
+                add an exercise block
             </button>
         </>
     );
 };
 
-export default EmptyFoodBlocks;
+export default EmptyExerciseBlocks;
