@@ -8,10 +8,6 @@ const FoodBlock = ({
 
     const backgroundColor = food.color || '#ffe58f';
 
-    if (portions <= 0) {
-        return (<div></div>);
-    }
-
     return <div
         className="card cursor-pointer three-columns-items"
         style={{backgroundColor: backgroundColor}}
