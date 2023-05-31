@@ -27,7 +27,7 @@ const WorkoutBlock = ({ workout }) => {
     >
 
         <div className="mx-1 text-large">
-            <div className="text-large">{workout.exerciseName}</div>
+            <div className="text-large">{workout.exercisename}</div>
         </div>
 
         <div className="text-medium text-bold">
