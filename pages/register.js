@@ -73,7 +73,7 @@ export default function Home({ data }) {
 
         // redirect based on the result
         if (result.includes("ok")) {
-            router.push("/customer");
+            router.push("/login");
         }
 
     }
