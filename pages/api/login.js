@@ -6,10 +6,6 @@ import { sql } from '@vercel/postgres';
 
 export default async function loginThroughApi(req, res) {
 
-    console.log("login api page called...");
-
-    console.log("looking at the variables we got from the browser..");
-    console.log(req.body);
 
     // Get just the username and password and put them into variables.
     const username = req.body.username;

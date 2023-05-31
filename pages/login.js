@@ -21,10 +21,10 @@ export default function Home({data}) {
 
        // basic checks
        if(!name){
-        alert("no username");
+        alert("no username submitted");
        }
-       if(name.length<5){
-        alert("username to short")
+       else if(name.length < 5 || name.length > 25){
+        alert("username must exceed 6 characters and mo more than 25 ")
        }
 
        // library based checks
@@ -57,14 +57,18 @@ export default function Home({data}) {
 
         const response = await fetch('/api/login', getApiCallOptions( "POST", data))
 
-        const result = await response.json()
-
+        const result = await response.json();
+      
+        if(result.includes("Wrong")){
+          alert("Wrong username password combination");
+        }
       if(result.includes("customer")){
         router.push("/index_calculator");
       }
       else if(result.includes("manager")){
-        router.push("/checkout");
+        router.push("/index_calculator");
       }
+      
     
   }
 

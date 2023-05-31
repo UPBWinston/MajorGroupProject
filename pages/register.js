@@ -1,7 +1,7 @@
-import {useRouter} from 'next/router'
-import {NextUIProvider, Container, Card, Row, Text, Col, Spacer, Input, Button} from "@nextui-org/react";
+import { useRouter } from 'next/router'
+import { NextUIProvider, Container, Card, Row, Text, Col, Spacer, Input, Button } from "@nextui-org/react";
 
-export default function Home({data}) {
+export default function Home({ data }) {
     const router = useRouter()
 
 
@@ -10,14 +10,17 @@ export default function Home({data}) {
 
         alert("The form was submitted");
         event.preventDefault();
+        const name = event.target.username.value;
+        const password = event.target.password.value;
+        const phoneNumber = event.target.phoneNumber.value;
 
 
         // Get data from the form.
         const data = {
-            username: event.target.username.value,
-            password: event.target.password.value,
+            username: name,
+            password: password,
             address: event.target.address.value,
-            phoneNumber: event.target.phoneNumber.value
+            phoneNumber: phoneNumber
         }
 
         // Send the data to the server in JSON format.
@@ -38,6 +41,27 @@ export default function Home({data}) {
             body: JSONdata,
         }
 
+        if (!name) {
+            alert("no username entered");
+            return;
+        }
+        else if (name.length < 5 || name.length > 25) {
+            alert("username must exceed 4 characters and mo more than 25 ")
+            return;
+        }
+
+        if (!password) {
+            alert("no password entered");
+            return;
+        }
+        else if (password.length < 5 || password.length > 25) {
+            alert("password must exceed 4 characters and mo more than 25 ")
+            return;
+        }
+        if (!phoneNumber) {
+            alert("no phone number entered");
+            return;
+        }
 
         // Send the form data to our forms API on Vercel and get a response.
         const response = await fetch(endpoint, options)
@@ -62,9 +86,9 @@ export default function Home({data}) {
             <Container gap={0}>
                 <Row gap={1}>
                     <Col>
-                        <Card css={{$$cardColor: '$colors$default'}}>
+                        <Card css={{ $$cardColor: '$colors$default' }}>
                             <Card.Body>
-                                <Text h6 size={25} color="white" css={{m: 0}}>
+                                <Text h6 size={25} color="white" css={{ m: 0 }}>
 
                                 </Text>
                             </Card.Body>
@@ -72,44 +96,44 @@ export default function Home({data}) {
                     </Col>
 
                 </Row>
-                <Spacer y={1}/>
+                <Spacer y={1} />
                 <Row gap={1}>
                     <Col>
-                        <Card css={{$$cardColor: '$colors$default'}}>
+                        <Card css={{ $$cardColor: '$colors$default' }}>
                             <Card.Body>
-                                <Text h6 size={15} color="white" css={{m: 0}}>
+                                <Text h6 size={15} color="white" css={{ m: 0 }}>
 
                                 </Text>
                             </Card.Body>
                         </Card>
                     </Col>
                     <Col>
-                        <Card css={{$$cardColor: '$colors$primary'}}>
+                        <Card css={{ $$cardColor: '$colors$primary' }}>
                             <Card.Body>
-                                <Text h6 size={15} color="white" css={{m: 0}}>
+                                <Text h6 size={15} color="white" css={{ m: 0 }}>
                                     Register
                                 </Text>
 
-                                <Spacer y={2}/>
+                                <Spacer y={2} />
 
 
                                 <form onSubmit={handleSubmit}>
 
                                     <Input type="text" id="username" clearable bordered labelPlaceholder="UserName"
-                                           initialValue=""/>
-                                    <Spacer y={1.5}/>
+                                        initialValue="" />
+                                    <Spacer y={1.5} />
 
                                     <Input type="text" id="password" clearable bordered labelPlaceholder="Password"
-                                           initialValue=""/>
-                                    <Spacer y={1.5}/>
+                                        initialValue="" />
+                                    <Spacer y={1.5} />
 
                                     <Input type="text" id="address" clearable bordered labelPlaceholder="Address"
-                                           initialValue=""/>
-                                    <Spacer y={1.5}/>
+                                        initialValue="" />
+                                    <Spacer y={1.5} />
 
                                     <Input type="text" id="phoneNumber" clearable bordered
-                                           labelPlaceholder="Phone Number" initialValue=""/>
-                                    <Spacer y={1.5}/>
+                                        labelPlaceholder="Phone Number" initialValue="" pattern="[0-9]{3}[ -]{0,1}[0-9]{3}[ -]{0,1}[0-9]{3}[ -]{0,1}" title="xxx-xxx-xxx format" />
+                                    <Spacer y={1.5} />
 
                                     <Button type="submit" color="secondary" auto>
                                         Register
@@ -121,9 +145,9 @@ export default function Home({data}) {
                         </Card>
                     </Col>
                     <Col>
-                        <Card css={{$$cardColor: '$colors$default'}}>
+                        <Card css={{ $$cardColor: '$colors$default' }}>
                             <Card.Body>
-                                <Text h6 size={15} color="white" css={{m: 0}}>
+                                <Text h6 size={15} color="white" css={{ m: 0 }}>
 
                                 </Text>
                             </Card.Body>
@@ -135,7 +159,6 @@ export default function Home({data}) {
 
     )
 }
-    
 
 
- 
+
