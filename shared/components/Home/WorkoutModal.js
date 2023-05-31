@@ -16,7 +16,7 @@ export const WorkoutModal = ({workout, button}) => {
     const [modalColor, setModalColor] = useState(workout.color || colors[0]);
     const changeModalColor = (color) => setModalColor(color);
 
-    const [selectedUnit, setSelectedUnit] = React.useState(new Set([workout.sessions]));
+    const [selectedUnit, setSelectedUnit] = React.useState(new Set([workout.unit]));
     const selectedUnitValue = React.useMemo(
         () => Array.from(selectedUnit).join(", ").replaceAll("_", " "),
         [selectedUnit]
@@ -33,13 +33,14 @@ export const WorkoutModal = ({workout, button}) => {
         const name = event.target.elements.name.value;
         const amount = event.target.elements.amount.value;
         const calories = event.target.elements.calories.value;
+        const sessions = event.target.elements.sessions.value;
 
         setOpen(false);
         await addWorkout({
             exerciseName: name,
             calories: calories,
             amount: amount,
-            sessions: selectedUnitValue,
+            sessions: sessions,
             color: modalColor,
             date: workout.date,
             type: selectedTypeValue,
@@ -97,8 +98,8 @@ export const WorkoutModal = ({workout, button}) => {
                         <input
                             defaultValue={workout.sessions}
                             type="number"
-                            id="units"
-                            name="units"
+                            id="sessions"
+                            name="sessions"
                             required
                             min="1"
                             step="1"

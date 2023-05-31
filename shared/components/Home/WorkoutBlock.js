@@ -5,7 +5,6 @@ import {refreshPage} from "../../../pages/api/utils";
 
 
 const WorkoutBlock = ({ workout }) => {
-    console.log("xxx " + JSON.stringify(workout));
     var [sessions, setSessions] = useState(Number(workout.sessions));
 
     const updateAmountOfExercise = ({event, amount}) => {
@@ -36,7 +35,7 @@ const WorkoutBlock = ({ workout }) => {
         </div>
 
         <div className="flex justify-content-between w-100">
-            <span className="text-medium">{workout.amount} {workout.sessions}</span>
+            <span className="text-medium">{workout.amount} {workout.unit}</span>
             <div className="text-bold total-meal-calories">{workout.calories} calories</div>
         </div>
 
