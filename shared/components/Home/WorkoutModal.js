@@ -44,7 +44,7 @@ export const WorkoutModal = ({workout, button}) => {
             color: modalColor,
             date: workout.date,
             type: selectedTypeValue,
-            unit: selectedUnit,
+            unit: selectedUnitValue,
         });
         refreshPage();
     }
