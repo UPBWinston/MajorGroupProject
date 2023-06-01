@@ -294,8 +294,8 @@ export default function Date({ username }) {
             });
     }, []);
     var calorieGoal = 1800;
-    if (userSettings && userSettings.calorieGoal) {
-        calorieGoal = userSettings.calorieGoal;
+    if (userSettings && userSettings.caloriegoal) {
+        calorieGoal = userSettings.caloriegoal;
     }
 
     return (
