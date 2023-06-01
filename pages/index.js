@@ -54,7 +54,7 @@ export default function Home({ username }) {
           <Card css={{ $$cardColor: '$colors$primary' }}>
             <Card.Body>
             <Text h6 size={15}  css={{ m: 0 , }}>
-               Eat Sleep, Gym, and Repeat.
+               
               <img className={styles.image1CSS} 
               src = "./i5.jpg">
                
